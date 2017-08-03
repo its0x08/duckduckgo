@@ -15,8 +15,8 @@ It can be used as a python module
 
 .. code-block:: pycon
 
-  >>> import duckduckgo
-  >>> for link in duckduckgo.search('duckduckgo', max_results=10):
+  >>> from duckduckgo import search
+  >>> for link in search('duckduckgo', max_results=10):
   ...     print link
   ...
   https://duckduckgo.com/
@@ -38,6 +38,14 @@ Installation
 .. code-block:: bash
 
   $ python setup.py install
+
+
+Installing using PIP
+------------
+
+.. code-block:: bash
+
+  $ pip install --upgrade --no-cache-dir duckduckgo
 
 
 
