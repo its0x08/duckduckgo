@@ -37,7 +37,7 @@ Installation
 
 .. code-block:: bash
 
-  $ python setup.py install
+  $ python setup.py install clean
 
 
 Installing using PIP
