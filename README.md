@@ -1,4 +1,4 @@
-# duckduckgo.py
+# DuckDuckGo URL scraper
 duckduckgo.py is a simple python module to scrape the duckduckgo search results. The ddg script can be used as a command line utility in a shell pipeline.
 
 ---
@@ -38,7 +38,7 @@ Showing execution time by using `-t` flag and result number by using `-n [Num]`.
 * Add installer script
 * 1) Install the project as cli tool
 * 2) Install the project as python module
-* Add -o to save output to file
+* Add `-o` to save output to file
 
 ## Contributors
 
