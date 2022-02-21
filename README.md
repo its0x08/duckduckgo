@@ -1,9 +1,11 @@
-# DuckDuckGo URL scraper
+# DuckDuckGo URL scraper v0.0.1-beta
 duckduckgo.py is a simple python module to scrape the duckduckgo search results. The ddg script can be used as a command line utility in a shell pipeline.
 
 ---
 ## Warning!
 This code is intended as a demonstration and, as all scraping utilities, should be used with great caution. By default the code will pause a few milliseconds each time it yields a result to avoid overloading the DDG servers.
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fits0x08%2Fduckduckgo&countColor=%232ccce4&style=flat-square)
 
 ---
 ## Usage
