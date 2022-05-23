@@ -7,6 +7,7 @@ This code is intended as a demonstration and, as all scraping utilities, should 
 
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fits0x08%2Fduckduckgo&countColor=%232ccce4&style=flat-square)
 [![CodeQL](https://github.com/its0x08/duckduckgo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/its0x08/duckduckgo/actions/workflows/codeql-analysis.yml)
+[![Semgrep](https://github.com/its0x08/duckduckgo/actions/workflows/semgrep.yml/badge.svg?branch=main)](https://github.com/its0x08/duckduckgo/actions/workflows/semgrep.yml)
 
 
 ---
