@@ -41,8 +41,6 @@ Showing execution time by using `-t` flag and result number by using `-n [Num]`.
 ```
 ## TODO
 * Add installer script
-* 1) Install the project as cli tool
-* 2) Install the project as python module
 * Add `-o` to save output to file
 
 ## Contributors
