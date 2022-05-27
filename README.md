@@ -14,7 +14,7 @@ This code is intended as a demonstration and, as all scraping utilities, should 
 ## Usage
 ```bash
 git clone https://github.com/its0x08/duckduckgo
-duckduckgo
+cd duckduckgo
 chmod +x ddg
 ./ddg -h
 usage: ddg [-h] [-n MAX_RESULTS] [-t [TIME]] keyword [keyword ...]
