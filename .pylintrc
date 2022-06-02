@@ -1,2 +1,4 @@
 [DESIGN]
 max-attributes=7
+
+min-public-methods=1
