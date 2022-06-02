@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""DuckDuckGo URL scrapper"""
 from argparse import ArgumentParser
 from time import time
 from duckduckgo import DDG
@@ -7,10 +8,14 @@ if __name__ == '__main__':
     try:
         t = time()
 
-        arguments = ArgumentParser(description='DuckDuckGo URL scraper by 0x08')
-        arguments.add_argument('keyword', metavar='keyword', type=str, nargs='+', help='search string')
-        arguments.add_argument('-n', dest='max_results', type=int, default=None, help='number of results (default: all)')
-        arguments.add_argument('-t', dest='time', const=True, nargs='?', help='execution time')
+        arguments = ArgumentParser(
+            description='DuckDuckGo URL scraper by 0x08')
+        arguments.add_argument('keyword', metavar='keyword',
+                               type=str, nargs='+', help='search string')
+        arguments.add_argument('-n', dest='max_results', type=int,
+                               default=None, help='number of results (default: all)')
+        arguments.add_argument('-t', dest='time', const=True,
+                               nargs='?', help='execution time')
 
         args = arguments.parse_args()
 
