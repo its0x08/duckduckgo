@@ -2,41 +2,41 @@ from requests_html import HTMLSession
 from time import sleep
 
 class DDG:
-	def __init__(self, keywords, max_results=None) -> None:
-		self.session = HTMLSession()
-		self.URL = 'https://html.duckduckgo.com/html/'
-		self.req_data = {'q': keywords}
-		self.req_headers = {'Content-Type':'application/x-www-form-urlencoded'}
-		self.keywords = keywords
-		self.max_results = max_results
-		self.selector = 'html body.body--html div div div.serp__results div#links.results div.nav-link form input'
-		self.links = []
+    def __init__(self, keywords, max_results=None) -> None:
+        self.session = HTMLSession()
+        self.URL = 'https://html.duckduckgo.com/html/'
+        self.req_data = {'q': keywords}
+        self.req_headers = {'Content-Type':'application/x-www-form-urlencoded'}
+        self.keywords = keywords
+        self.max_results = max_results
+        self.selector = 'html body.body--html div div div.serp__results div#links.results div.nav-link form input'
+        self.links = []
 
-	def search(self) -> list:
-		self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
+    def search(self) -> list:
+        self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
 
-		for link in self.req.html.absolute_links:
-			if link not in self.links and 'ad_provider' not in link:
-				self.links.append(link)
+        for link in self.req.html.absolute_links:
+            if link not in self.links and 'ad_provider' not in link:
+                self.links.append(link)
 
-		while self.req.html.find(self.selector):
-			attrs = self.req.html.find(self.selector)
+        while self.req.html.find(self.selector):
+            attrs = self.req.html.find(self.selector)
 
-			self.req_data['s'] = attrs[2].attrs['value']
-			self.req_data['nextParams'] = attrs[3].attrs['value']
-			self.req_data['v'] = attrs[4].attrs['value']
-			self.req_data['o'] = attrs[5].attrs['value']
-			self.req_data['dc'] = attrs[6].attrs['value']
-			self.req_data['api'] = attrs[7].attrs['value']
-			self.req_data['vqd'] = attrs[8].attrs['value']
-			self.req_data['kl'] = attrs[9].attrs['value']
+            self.req_data['s'] = attrs[2].attrs['value']
+            self.req_data['nextParams'] = attrs[3].attrs['value']
+            self.req_data['v'] = attrs[4].attrs['value']
+            self.req_data['o'] = attrs[5].attrs['value']
+            self.req_data['dc'] = attrs[6].attrs['value']
+            self.req_data['api'] = attrs[7].attrs['value']
+            self.req_data['vqd'] = attrs[8].attrs['value']
+            self.req_data['kl'] = attrs[9].attrs['value']
 
-			self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
-			for link in self.req.html.absolute_links:
-				if link not in self.links and 'ad_provider' not in link:
-					self.links.append(link)
+            self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
+            for link in self.req.html.absolute_links:
+                if link not in self.links and 'ad_provider' not in link:
+                    self.links.append(link)
 
-			if self.max_results is not None and self.max_results <= len(self.links):
-				return self.links[0:self.max_results]
-			sleep(0.2)
-		return self.links
+            if self.max_results is not None and self.max_results <= len(self.links):
+                return self.links[0:self.max_results]
+            sleep(0.2)
+        return self.links
