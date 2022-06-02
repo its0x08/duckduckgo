@@ -1,19 +1,30 @@
-from requests_html import HTMLSession
+"""DuckDuckGo URL scrapper lib"""
 from time import sleep
 
+from requests_html import HTMLSession
+
+
 class DDG:
+    """DuckDuckGo scrapper class"""
     def __init__(self, keywords, max_results=None) -> None:
         self.session = HTMLSession()
-        self.URL = 'https://html.duckduckgo.com/html/'
+        self.ddg_url = 'https://html.duckduckgo.com/html/'
         self.req_data = {'q': keywords}
-        self.req_headers = {'Content-Type':'application/x-www-form-urlencoded'}
+        self.req_headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'}
         self.keywords = keywords
         self.max_results = max_results
-        self.selector = 'html body.body--html div div div.serp__results div#links.results div.nav-link form input'
+        self.selector = 'html body.body--html div div\
+            div.serp__results div#links.results div.nav-link form input'
         self.links = []
+        """Empty variables used in the future"""
+        self.sess_req = ""
+        self.req = ""
 
     def search(self) -> list:
-        self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
+        """Search function"""
+        self.req = self.session.post(
+            self.ddg_url, data=self.req_data, headers=self.req_headers)
 
         for link in self.req.html.absolute_links:
             if link not in self.links and 'ad_provider' not in link:
@@ -31,8 +42,9 @@ class DDG:
             self.req_data['vqd'] = attrs[8].attrs['value']
             self.req_data['kl'] = attrs[9].attrs['value']
 
-            self.req = self.session.post(self.URL, data = self.req_data, headers=self.req_headers)
-            for link in self.req.html.absolute_links:
+            self.sess_req = self.session.post(
+                self.ddg_url, data=self.req_data, headers=self.req_headers)
+            for link in self.sess_req.html.absolute_links:
                 if link not in self.links and 'ad_provider' not in link:
                     self.links.append(link)
 

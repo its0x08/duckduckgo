@@ -2,6 +2,7 @@
 """DuckDuckGo URL scrapper"""
 from argparse import ArgumentParser
 from time import time
+
 from duckduckgo import DDG
 
 if __name__ == '__main__':
