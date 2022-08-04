@@ -17,7 +17,7 @@ This code is intended as a demonstration and, as all scraping utilities, should 
 git clone https://github.com/its0x08/duckduckgo
 cd duckduckgo
 python ddg.py -h
-usage: ddg.py [-h] [-n MAX_RESULTS] [-t [TIME]] keyword [keyword ...]
+usage: ddg.py [-h] [-n MAX_RESULTS] [-t] [-o FILE_OUTPUT] keyword
 
 DuckDuckGo URL scraper by 0x08
 
@@ -27,7 +27,8 @@ positional arguments:
 options:
   -h, --help      show this help message and exit
   -n MAX_RESULTS  number of results (default: all)
-  -t [TIME]       execution time
+  -t              execution time (default: False)
+  -o FILE_OUTPUT  save output to file
 ```
 
 Simple search
@@ -39,9 +40,15 @@ Showing execution time by using `-t` flag and result number by using `-n [Num]`.
 ```bash
 python ddg.py -n 10 -t search something
 ```
+
+Save output to file by using `-o` flag.
+```bash
+python ddg.py -n 10 -o output_file.log search something
+```
+
 ## TODO
-* Add installer script
-* Add `-o` to save output to file
+- [] Add installer script
+- [x] ~~Add `-o` to save output to file~~
 
 ## Contributors
 

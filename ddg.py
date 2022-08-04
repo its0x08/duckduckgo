@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """DuckDuckGo URL scrapper"""
-from argparse import ArgumentParser
+from argparse import ArgumentParser, BooleanOptionalAction
 from time import time
 
 from lib.duckduckgo import DDG
@@ -12,11 +12,13 @@ if __name__ == '__main__':
 		arguments = ArgumentParser(
 			description='DuckDuckGo URL scraper by 0x08')
 		arguments.add_argument('keyword', metavar='keyword',
-							   type=str, nargs='+', help='search string')
-		arguments.add_argument('-n', dest='max_results', type=int,
-							   help='number of results (default: all)')
-		arguments.add_argument(
-			'-t', dest='time', const=True, help='execution time')
+							   type=str, help='search string')
+		arguments.add_argument('-n', dest='max_results',
+							   type=int, help='number of results (default: all)')
+		arguments.add_argument('-t', dest='time',
+							   action=BooleanOptionalAction, default=False, help='execution time')
+		arguments.add_argument('-o', dest='file_output',
+							   type=str, help='save output to file')
 
 		args = arguments.parse_args()
 
@@ -27,5 +29,10 @@ if __name__ == '__main__':
 
 		if args.time:
 			print(f'Execution time: {time()-t:.2f}s')
+		elif args.file_output:
+			with open(args.file_output, 'w') as file_output:
+				file_output.write('\n'.join(sorted(search)))
+				file_output.write('\n')
+
 	except KeyboardInterrupt:
 		print('\nCtrl+C was pressed!')
