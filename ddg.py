@@ -30,7 +30,7 @@ if __name__ == '__main__':
 		if args.time:
 			print(f'Execution time: {time()-t:.2f}s')
 		elif args.file_output:
-			with open(args.file_output, 'w') as file_output:
+			with open(args.file_output,mode='w', encoding='utf-8') as file_output:
 				file_output.write('\n'.join(sorted(search)))
 				file_output.write('\n')
 

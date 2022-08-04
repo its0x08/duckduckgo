@@ -2,3 +2,4 @@
 max-attributes=10
 
 min-public-methods=0
+disable=W0311,E0611
