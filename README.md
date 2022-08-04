@@ -16,9 +16,8 @@ This code is intended as a demonstration and, as all scraping utilities, should 
 ```bash
 git clone https://github.com/its0x08/duckduckgo
 cd duckduckgo
-chmod +x ddg
-./ddg -h
-usage: ddg [-h] [-n MAX_RESULTS] [-t [TIME]] keyword [keyword ...]
+python ddg.py -h
+usage: ddg.py [-h] [-n MAX_RESULTS] [-t [TIME]] keyword [keyword ...]
 
 DuckDuckGo URL scraper by 0x08
 
@@ -33,12 +32,12 @@ options:
 
 Simple search
 ```bash
-./ddg search something
+python ddg.py search something
 ```
 
 Showing execution time by using `-t` flag and result number by using `-n [Num]`.
 ```bash
-./ddg -n 10 -t search something
+python ddg.py -n 10 -t search something
 ```
 ## TODO
 * Add installer script
@@ -46,10 +45,13 @@ Showing execution time by using `-t` flag and result number by using `-n [Num]`.
 
 ## Contributors
 
-If you decide to make a pull request to suggest your changes to the project, please dont forget to add your name to the CONTRIBUTING.md file.
+If you decide to make a pull request to suggest your changes to the project, please don't forget to add your name to the CONTRIBUTING.md file.
 
 ## Pull Requests & Issues
 You have a new feature in mind?
+
 The code is buggy, wont run as expected and you happen to know __python__?
+
 Please make a __Pull Request (_PR_)__ suggesting you changes.
-Otherwise you can always open an __Issue__ to help imporve this project.
+
+Otherwise you can always open an __Issue__ to help improve this project.
