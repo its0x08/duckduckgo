@@ -47,7 +47,7 @@ python ddg.py -n 10 -o output_file.log search something
 ```
 
 ## TODO
-- [] Add installer script
+- [ ] Add installer script
 - [x] ~~Add `-o` to save output to file~~
 
 ## Contributors
