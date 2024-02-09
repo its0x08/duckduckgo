@@ -12,7 +12,8 @@ if __name__ == '__main__':
 		ARGUMENTS = ArgumentParser(description='DuckDuckGo URL scraper by 0x08')
 		ARGUMENTS.add_argument('keyword', metavar='keyword', type=str, help='search string')
 		ARGUMENTS.add_argument('-n', dest='max_results', type=int, help='number of results (default: all)')
-		ARGUMENTS.add_argument('-t', dest='time', action=BooleanOptionalAction, default=False, help='execution time')
+		ARGUMENTS.add_argument('-t', dest='time', action=BooleanOptionalAction,
+						 default=False, help='execution time')
 		ARGUMENTS.add_argument('-o', dest='file_output', type=str, help='save output to file')
 
 		args = ARGUMENTS.parse_args()
