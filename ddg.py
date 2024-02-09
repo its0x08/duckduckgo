@@ -9,13 +9,13 @@ if __name__ == '__main__':
 	try:
 		start_time = time()
 
-		arguments = ArgumentParser(description='DuckDuckGo URL scraper by 0x08')
-		arguments.add_argument('keyword', metavar='keyword', type=str, help='search string')
-		arguments.add_argument('-n', dest='max_results', type=int, help='number of results (default: all)')
-		arguments.add_argument('-t', dest='time', action=BooleanOptionalAction, default=False, help='execution time')
-		arguments.add_argument('-o', dest='file_output', type=str, help='save output to file')
+		ARGUMENTS = ArgumentParser(description='DuckDuckGo URL scraper by 0x08')
+		ARGUMENTS.add_argument('keyword', metavar='keyword', type=str, help='search string')
+		ARGUMENTS.add_argument('-n', dest='max_results', type=int, help='number of results (default: all)')
+		ARGUMENTS.add_argument('-t', dest='time', action=BooleanOptionalAction, default=False, help='execution time')
+		ARGUMENTS.add_argument('-o', dest='file_output', type=str, help='save output to file')
 
-		args = arguments.parse_args()
+		args = ARGUMENTS.parse_args()
 
 		ddg = DDG(' '.join(args.keyword), max_results=args.max_results)
 		search = ddg.search()
